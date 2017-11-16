@@ -13,6 +13,7 @@ class CurrentLocationViewController: UIViewController {
     var scheduleButton: UIButton = UIButton()
     var colours = Colours()
     var scheduler = Scheduler()
+    var dateArray = [TimeInterval]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,19 +21,20 @@ class CurrentLocationViewController: UIViewController {
         setUpView()
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
+    override var prefersStatusBarHidden: Bool {
+        return true
     }
     
     func setUpView() {
         let layer = CAGradientLayer()
         layer.frame = self.view.bounds
-        layer.colors = [colours.orange.cgColor, colours.purple.cgColor]
+        layer.colors = [colours.orange.cgColor, colours.purple.cgColor, colours.black.cgColor]
         self.view.layer.addSublayer(layer)
         locationLabel.frame = CGRect(x: 0, y: self.view.bounds.height/4, width: self.view.bounds.width, height: 100)
         locationLabel.textAlignment = .center
         locationLabel.numberOfLines = 0
         scheduleButton.frame = CGRect(x: 25, y: self.view.bounds.height * 3/4, width: self.view.bounds.width - 50, height: 50)
+        scheduleButton.addTarget(self, action: #selector(showSchedule), for: .touchUpInside)
         self.view.addSubview(locationLabel)
         self.view.addSubview(scheduleButton)
     }
@@ -49,7 +51,6 @@ class CurrentLocationViewController: UIViewController {
     func getLocation() -> String {
         let currentDate = scheduler.date
         var listedDate: TimeInterval?
-        var dateArray = [TimeInterval]()
         if currentDate.timeIntervalSince1970 < scheduler.timeStamp2018 {
             for (timeInterval, _) in scheduler.scheduleDict2017 {
                 dateArray.append(timeInterval)
@@ -70,6 +71,14 @@ class CurrentLocationViewController: UIViewController {
         } else {
             return scheduler.unknown
         }
+    }
+    
+    @objc func showSchedule() {
+        let vc = ScheduleTableViewController(style: .plain)
+        vc.dateArray = dateArray
+        vc.scheduler = scheduler
+        vc.colours = colours
+        self.show(vc, sender: self)
     }
     
 }
