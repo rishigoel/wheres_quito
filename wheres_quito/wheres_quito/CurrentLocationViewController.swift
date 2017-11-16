@@ -18,7 +18,6 @@ class CurrentLocationViewController: UIViewController {
         super.viewDidLoad()
         configureView()
         setUpView()
-        print(Date())
     }
     
     override func didReceiveMemoryWarning() {
