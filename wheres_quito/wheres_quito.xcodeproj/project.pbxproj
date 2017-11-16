@@ -15,6 +15,7 @@
 		5B815DEA1FBE15AC00C519C1 /* wheres_quitoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B815DE91FBE15AC00C519C1 /* wheres_quitoUITests.swift */; };
 		5B815DF81FBE162100C519C1 /* CurrentLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B815DF71FBE162100C519C1 /* CurrentLocationViewController.swift */; };
 		5B815DFA1FBE177100C519C1 /* Colours.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B815DF91FBE177100C519C1 /* Colours.swift */; };
+		5B815DFC1FBE1E1500C519C1 /* Scheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B815DFB1FBE1E1500C519C1 /* Scheduler.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		5B815DEB1FBE15AC00C519C1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5B815DF71FBE162100C519C1 /* CurrentLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentLocationViewController.swift; sourceTree = "<group>"; };
 		5B815DF91FBE177100C519C1 /* Colours.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colours.swift; sourceTree = "<group>"; };
+		5B815DFB1FBE1E1500C519C1 /* Scheduler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scheduler.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 				5B815DD51FBE15AC00C519C1 /* Info.plist */,
 				5B815DF71FBE162100C519C1 /* CurrentLocationViewController.swift */,
 				5B815DF91FBE177100C519C1 /* Colours.swift */,
+				5B815DFB1FBE1E1500C519C1 /* Scheduler.swift */,
 			);
 			path = wheres_quito;
 			sourceTree = "<group>";
@@ -263,6 +266,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5B815DCA1FBE15AC00C519C1 /* AppDelegate.swift in Sources */,
+				5B815DFC1FBE1E1500C519C1 /* Scheduler.swift in Sources */,
 				5B815DFA1FBE177100C519C1 /* Colours.swift in Sources */,
 				5B815DF81FBE162100C519C1 /* CurrentLocationViewController.swift in Sources */,
 			);
