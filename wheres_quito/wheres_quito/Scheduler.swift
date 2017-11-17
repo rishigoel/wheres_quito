@@ -31,7 +31,7 @@ class Scheduler {
         christmas = "Why you looking for Quito? It's Christmas..."
         timeStamp2018 = 1514764860
         scheduleDict2017 = [1510790460:lasVegas,
-                            1511136060:vacation,
+                            1511222460:vacation,
                             1512345660:lasVegas,
                             1512950460:sanFrancisco,
                             1513555260:unknown,

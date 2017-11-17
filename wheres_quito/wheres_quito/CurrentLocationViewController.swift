@@ -17,12 +17,29 @@ class CurrentLocationViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        stylizeNavBar()
         configureView()
         setUpView()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.navigationController?.setNavigationBarHidden(false, animated: animated)
+    }
+    
     override var prefersStatusBarHidden: Bool {
         return true
+    }
+    
+    func stylizeNavBar() {
+        self.navigationController?.navigationBar.tintColor = UIColor.white
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
     }
     
     func setUpView() {
