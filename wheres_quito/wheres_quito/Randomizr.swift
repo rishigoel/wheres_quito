@@ -13,7 +13,7 @@ class Randomizr {
     var location: String
     
     init () {
-        locationsArray = ["Quito is in Mongolia", "Quito is hiding from you", "Even Quito doesn't know where he is", "Quito is behind you", "Quito is on the moon", "Quito is playing well with others", "Quito is in the walls", "Quito is in your dreams", "Quito has quit and become a traffic cop", "Quito is in the heart of the Congolese jungle", "Quito is scaling Everest", "Quito is done with your shit", "Quito is hanging out with kangaroos", "Quito is saving the Bermuda Triangle", "Quito is training in the mountains to become an SEO god"]
+        locationsArray = ["Quito is in Mongolia", "Quito is hiding from you", "Even Quito doesn't know where he is", "Quito is behind you", "Quito is on the moon", "Quito is playing well with others", "Quito is in the walls", "Quito is in your dreams", "Quito has quit and become a traffic cop", "Quito is in the heart of the Congolese jungle", "Quito is scaling Everest", "Quito is done with your shit", "Quito is hanging out with kangaroos", "Quito is saving the Bermuda Triangle", "Quito is training in the mountains to become an SEO god", "Quito is running a marathon somewhere", "Quito is on the enterprise", "Quito is buying boba", "Quito is starring in a live action anime movie"]
         location = ""
     }
     
