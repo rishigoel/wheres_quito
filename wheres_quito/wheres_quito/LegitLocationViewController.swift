@@ -32,7 +32,7 @@ class LegitLocationViewController: UIViewController {
         locationLabel.frame = CGRect(x: 0, y: self.view.bounds.height/4, width: self.view.bounds.width, height: 100)
         locationLabel.textAlignment = .center
         locationLabel.numberOfLines = 0
-        locationLabel.font = locationLabel.font.withSize(32.0)
+        locationLabel.font = locationLabel.font.withSize(26.0)
         locationLabel.textColor = UIColor.white
         self.view.addSubview(locationLabel)
     }

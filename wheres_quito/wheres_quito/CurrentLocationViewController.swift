@@ -63,7 +63,7 @@ class CurrentLocationViewController: UIViewController {
     
     func configureView() {
         locationLabel.text = getLocation()
-        locationLabel.font = locationLabel.font.withSize(32.0)
+        locationLabel.font = locationLabel.font.withSize(26.0)
         locationLabel.textColor = UIColor.white
         makeButton(scheduleButton, "Check Quito's Schedule", #selector(showSchedule))
         makeButton(liveLocationButton, "Check Quito's legit location", #selector(showLegitLocation))
