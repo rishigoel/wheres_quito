@@ -24,7 +24,7 @@ class ScheduleTableViewController: UITableViewController {
             layer.frame = CGRect(x: 0.0, y: CGFloat(dateArray.count) * 44.0, width: self.view.bounds.width, height: self.view.bounds.height - CGFloat(dateArray.count) * 44.0)
             layer.colors = [colours.red.cgColor, colours.teal.cgColor]
             self.view.layer.addSublayer(layer)
-            randomView.frame = CGRect(x: 0.0, y: -44.0, width: self.view.bounds.width, height: 44.0)
+            randomView.frame = CGRect(x: 0.0, y: -88.0, width: self.view.bounds.width, height: 88.0)
             randomView.backgroundColor = colours.red
             self.view.addSubview(randomView)
         }
