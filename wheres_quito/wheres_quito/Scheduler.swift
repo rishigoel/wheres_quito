@@ -13,8 +13,6 @@ class Scheduler {
     var sanFrancisco: String
     var lasVegas: String
     var unknown: String
-    var hiding: String
-    var mongolia: String
     var vacation: String
     var christmas: String
     var timeStamp2018: TimeInterval
@@ -25,8 +23,6 @@ class Scheduler {
         sanFrancisco = "Quito is in San Francisco"
         lasVegas = "Quito is in Las Vegas"
         unknown = "Quito didn't tell me :("
-        hiding = "Quito is hiding from you"
-        mongolia = "Quito is in Mongolia"
         vacation = "Quito is on Vacation"
         christmas = "Why you looking for Quito? It's Christmas..."
         timeStamp2018 = 1514764860
