@@ -11,9 +11,11 @@ import UIKit
 class CurrentLocationViewController: UIViewController {
     var locationLabel: UILabel = UILabel()
     var scheduleButton: UIButton = UIButton()
+    var liveLocationButton: UIButton = UIButton()
     var colours = Colours()
     var scheduler = Scheduler()
     var dateArray = [TimeInterval]()
+    var randomizr = Randomizr()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,30 +53,40 @@ class CurrentLocationViewController: UIViewController {
         locationLabel.textAlignment = .center
         locationLabel.numberOfLines = 0
         scheduleButton.frame = CGRect(x: 25, y: self.view.bounds.height * 3/4, width: self.view.bounds.width - 50, height: 50)
-        scheduleButton.addTarget(self, action: #selector(showSchedule), for: .touchUpInside)
+        liveLocationButton.frame = CGRect(x: 25, y: self.view.bounds.height * 3/4 + 75, width: self.view.bounds.width - 50, height: 50)
         self.view.addSubview(locationLabel)
-        self.view.addSubview(scheduleButton)
+        if is2017() {
+            self.view.addSubview(scheduleButton)
+            self.view.addSubview(liveLocationButton)
+        }
     }
     
     func configureView() {
         locationLabel.text = getLocation()
         locationLabel.font = locationLabel.font.withSize(32.0)
         locationLabel.textColor = UIColor.white
-        scheduleButton.setTitle("Check Quito's Schedule", for: .normal)
-        scheduleButton.layer.cornerRadius = 5.0
-        scheduleButton.backgroundColor = colours.teal
+        makeButton(scheduleButton, "Check Quito's Schedule", #selector(showSchedule))
+        makeButton(liveLocationButton, "Check Quito's legit location", #selector(showLegitLocation))
+        liveLocationButton.layer.cornerRadius = 5.0
+        liveLocationButton.backgroundColor = colours.teal
+    }
+    
+    func makeButton(_ button: UIButton, _ title: String, _ target: Selector) {
+        button.setTitle(title, for: .normal)
+        button.layer.cornerRadius = 5.0
+        button.backgroundColor = colours.teal
+        button.addTarget(self, action: target, for: .touchUpInside)
     }
     
     func getLocation() -> String {
-        let currentDate = scheduler.date
         var listedDate: TimeInterval?
-        if currentDate.timeIntervalSince1970 < scheduler.timeStamp2018 {
+        if is2017() {
             for (timeInterval, _) in scheduler.scheduleDict2017 {
                 dateArray.append(timeInterval)
             }
             dateArray.sort()
             for date in dateArray {
-                if currentDate.timeIntervalSince1970 >= date {
+                if scheduler.date.timeIntervalSince1970 >= date {
                     listedDate = date
                 } else {
                     break
@@ -86,8 +98,15 @@ class CurrentLocationViewController: UIViewController {
                 return scheduler.unknown
             }
         } else {
-            return scheduler.unknown
+            return randomizr.getLocation()
         }
+    }
+    
+    func is2017() -> Bool {
+        if scheduler.date.timeIntervalSince1970 < scheduler.timeStamp2018 {
+            return true
+        }
+        return false
     }
     
     @objc func showSchedule() {
@@ -95,6 +114,13 @@ class CurrentLocationViewController: UIViewController {
         vc.dateArray = dateArray
         vc.scheduler = scheduler
         vc.colours = colours
+        self.show(vc, sender: self)
+    }
+    
+    @objc func showLegitLocation() {
+        let vc = LegitLocationViewController()
+        vc.colours = colours
+        vc.location = randomizr.getLocation()
         self.show(vc, sender: self)
     }
     
